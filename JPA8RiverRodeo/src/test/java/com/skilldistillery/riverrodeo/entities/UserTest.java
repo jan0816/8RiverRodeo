@@ -1,5 +1,6 @@
 package com.skilldistillery.riverrodeo.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
@@ -44,7 +45,9 @@ class UserTest {
 	@Test
 	void test() {
 		assertNotNull(user);
-
+		assertEquals("Seth", user.getFirstName());
+		assertEquals("Schneider", user.getLastName());
+		assertEquals(1, user.getTeamId());
 
 	}
 }

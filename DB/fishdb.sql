@@ -114,12 +114,54 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `river`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `fishdb`;
+INSERT INTO `river` (`id`, `name`) VALUES (1, 'Colorado');
+INSERT INTO `river` (`id`, `name`) VALUES (2, 'Frying Pan');
+INSERT INTO `river` (`id`, `name`) VALUES (3, 'Roaring Fork');
+INSERT INTO `river` (`id`, `name`) VALUES (4, 'Crystal');
+INSERT INTO `river` (`id`, `name`) VALUES (5, 'Taylor');
+INSERT INTO `river` (`id`, `name`) VALUES (6, 'East');
+INSERT INTO `river` (`id`, `name`) VALUES (7, 'Spring Creek');
+INSERT INTO `river` (`id`, `name`) VALUES (8, 'Gunnison');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fishdb`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `team_id`) VALUES (1, 'Seth', 'Schneider', 1);
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `team_id`) VALUES (2, 'Jan', 'Ellsworth', 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `fish`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `fishdb`;
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (1, 43.5, 1, NULL, 1, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (2, 43, 1, NULL, 2, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (3, 51, 2, NULL, 1, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (4, 47, 2, NULL, 2, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (5, 44.5, 3, NULL, 1, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (6, 37, 3, NULL, 2, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (7, 36, 4, NULL, 1, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (8, 33.5, 4, NULL, 2, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (9, 47.5, 5, NULL, 1, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (10, 42, 5, NULL, 2, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (11, 39.5, 6, NULL, 1, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (12, 37, 6, NULL, 2, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (13, 26.5, 7, NULL, 1, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (14, 27, 7, NULL, 2, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (15, 33, 8, NULL, 1, '2019-07-27');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (16, 21, 8, NULL, 2, '2019-07-27');
 
 COMMIT;
 
