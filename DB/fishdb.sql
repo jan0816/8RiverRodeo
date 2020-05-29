@@ -137,6 +137,8 @@ START TRANSACTION;
 USE `fishdb`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `team_id`) VALUES (1, 'Seth', 'Schneider', 1);
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `team_id`) VALUES (2, 'Jan', 'Ellsworth', 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `team_id`) VALUES (3, 'Bob', 'Dobbs', 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `team_id`) VALUES (4, 'Jane', 'Doe', 2);
 
 COMMIT;
 
