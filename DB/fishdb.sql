@@ -107,8 +107,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fishdb`;
-INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`) VALUES (1, 'Flyman', 'password', NULL, NULL, 'user', NULL);
-INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`) VALUES (2, 'Pussy power', 'password', NULL, NULL, 'user', NULL);
+INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`) VALUES (1, 'Flyman', 'password', '1239705555', 1, 'user', 'https://i.pinimg.com/originals/96/57/fc/9657fcf983d0497f4813b01da29e12c5.jpg');
+INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`) VALUES (2, 'Pussy power', 'password', '3211234567', 2, 'user', 'https://i.ytimg.com/vi/cVxTZFpYKMg/hqdefault.jpg');
 
 COMMIT;
 
@@ -148,8 +148,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fishdb`;
-INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (1, 43.5, 1, NULL, 1, '2019-07-26');
-INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (2, 43, 1, NULL, 2, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (1, 43.5, 1, 'https://guiderecommended.com/wp-content/uploads/2019/01/Fly-Fish-Hacks-to-Catch-More-Fish-1.jpg', 1, '2019-07-26');
+INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (2, 43, 1, 'https://cdn.shopify.com/s/files/1/0196/1360/files/brook-trout_1893ad83-5507-421c-8b71-2cb3d3d17470_large.jpg?v=1503073627', 2, '2019-07-26');
 INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (3, 51, 2, NULL, 1, '2019-07-26');
 INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (4, 47, 2, NULL, 2, '2019-07-26');
 INSERT INTO `fish` (`id`, `size_in_cm`, `river_id`, `picture_url`, `user_id`, `day_caught`) VALUES (5, 44.5, 3, NULL, 1, '2019-07-26');
