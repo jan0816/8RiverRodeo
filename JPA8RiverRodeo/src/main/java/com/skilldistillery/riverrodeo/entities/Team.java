@@ -19,4 +19,116 @@ public class Team {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
+	private Integer rank;
+	
+	private String role;
+	
+	@Column(name = "picture_url")
+	private String pictureUrl;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Integer getRank() {
+		return rank;
+	}
+
+	public void setRank(Integer rank) {
+		this.rank = rank;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Team other = (Team) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Team [id=").append(id).append(", name=").append(name).append(", password=").append(password)
+				.append(", phoneNumber=").append(phoneNumber).append(", rank=").append(rank).append(", role=")
+				.append(role).append(", pictureUrl=").append(pictureUrl).append("]");
+		return builder.toString();
+	}
+
+	public Team() {
+		super();
+	}
+
+	public Team(int id, String name, String password, String phoneNumber, Integer rank, String role,
+			String pictureUrl) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.rank = rank;
+		this.role = role;
+		this.pictureUrl = pictureUrl;
+	}
+	
+	
+	
 }

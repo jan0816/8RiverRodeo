@@ -42,6 +42,15 @@ class UserTest {
 		user = null;
 	}
 	
+//	+----+------------+-----------+---------+
+//	| id | first_name | last_name | team_id |
+//	+----+------------+-----------+---------+
+//	|  1 | Seth       | Schneider |       1 |
+//	|  2 | Jan        | Ellsworth |       2 |
+//	|  3 | Bob        | Dobbs     |       1 |
+//	|  4 | Jane       | Doe       |       2 |
+//	+----+------------+-----------+---------+
+	
 	@Test
 	void test() {
 		assertNotNull(user);
