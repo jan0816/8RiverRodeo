@@ -50,7 +50,6 @@ class FishTest {
 	void test() {
 		assertNotNull(fish);
 		assertEquals(43.5, fish.getSizeInCm());
-		assertEquals(1, fish.getUserId());
 		assertEquals(LocalDate.of( 2019,07,26), fish.getDayCaught());
 	}
 	@Test
