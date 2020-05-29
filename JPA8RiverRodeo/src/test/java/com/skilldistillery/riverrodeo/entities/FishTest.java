@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class FishTest {
@@ -45,13 +46,17 @@ class FishTest {
 	}
 	
 	@Test
+	@DisplayName("test Fish entity mapping")
 	void test() {
 		assertNotNull(fish);
 		assertEquals(43.5, fish.getSizeInCm());
-		assertEquals(1, fish.getRiverId());
 		assertEquals(1, fish.getUserId());
 		assertEquals(LocalDate.of( 2019,07,26), fish.getDayCaught());
-
-
+	}
+	@Test
+	@DisplayName("test Fish OTO River mapping")
+	void test2() {
+		assertNotNull(fish.getRiver());
+		assertNotNull("Colorado", fish.getRiver().getName());
 	}
 }
