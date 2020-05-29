@@ -32,9 +32,6 @@ public class Fish {
 	@JoinColumn(name="river_id")
 	private River river;
 	
-	@Column(name="user_id")
-	private int userId;
-	
 	@Column(name="day_caught")
 	@CreationTimestamp
 	private LocalDate dayCaught;
@@ -75,16 +72,6 @@ public class Fish {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 
 	public double getSizeInCm() {
 		return sizeInCm;
@@ -143,8 +130,6 @@ public class Fish {
 		builder.append(pictureUrl);
 		builder.append(", river=");
 		builder.append(river);
-		builder.append(", userId=");
-		builder.append(userId);
 		builder.append(", dayCaught=");
 		builder.append(dayCaught);
 		builder.append("]");
