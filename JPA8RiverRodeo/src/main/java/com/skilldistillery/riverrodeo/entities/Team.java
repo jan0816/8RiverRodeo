@@ -1,10 +1,13 @@
 package com.skilldistillery.riverrodeo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Team {
@@ -25,6 +28,9 @@ public class Team {
 	
 	@Column(name = "picture_url")
 	private String pictureUrl;
+	
+	@OneToMany(mappedBy = "team")
+	private List<User> teamMembers;
 
 	public int getId() {
 		return id;
@@ -80,6 +86,14 @@ public class Team {
 
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
+	}
+
+	public List<User> getTeamMembers() {
+		return teamMembers;
+	}
+
+	public void setTeamMembers(List<User> teamMembers) {
+		this.teamMembers = teamMembers;
 	}
 
 	@Override

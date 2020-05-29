@@ -3,6 +3,7 @@ package com.skilldistillery.riverrodeo.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,5 +61,12 @@ class TeamTest {
 		assertEquals("user", team.getRole());
 		assertEquals("https://i.pinimg.com/originals/96/57/fc/9657fcf983d0497f4813b01da29e12c5.jpg",team.getPictureUrl());
 
+	}
+	
+	@Test
+	void test_relationship_mapping() {
+		assertNotNull(team.getTeamMembers());
+		assertTrue(team.getTeamMembers().size() > 0);
+		assertEquals("Seth",team.getTeamMembers().get(0).getFirstName());
 	}
 }

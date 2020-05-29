@@ -1,10 +1,15 @@
 package com.skilldistillery.riverrodeo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -19,8 +24,14 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Column(name = "team_id")
-	private int teamId;
+//	@Column(name = "team_id")
+//	private int teamId;
+	@ManyToOne
+	@JoinColumn(name="team_id")
+	private Team team;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Fish> fishes;
 
 	public int getId() {
 		return id;
@@ -44,6 +55,14 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public List<Fish> getFishes() {
+		return fishes;
+	}
+
+	public void setFishes(List<Fish> fishes) {
+		this.fishes = fishes;
 	}
 
 	@Override
@@ -87,13 +106,22 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getTeamId() {
-		return teamId;
+	public Team getTeam() {
+		return team;
 	}
 
-	public void setTeamId(int teamId) {
-		this.teamId = teamId;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
+	
+
+//	public int getTeamId() {
+//		return teamId;
+//	}
+//
+//	public void setTeamId(int teamId) {
+//		this.teamId = teamId;
+//	}
 
 
 	
