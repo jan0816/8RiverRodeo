@@ -71,7 +71,7 @@ DROP TABLE IF EXISTS `fish` ;
 
 CREATE TABLE IF NOT EXISTS `fish` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `size_in_cm` DECIMAL NULL,
+  `size_in_cm` DECIMAL(10,1) NULL,
   `river_id` INT NOT NULL,
   `picture_url` TEXT NULL,
   `user_id` INT NOT NULL,
