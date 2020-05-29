@@ -2,6 +2,7 @@ package com.skilldistillery.riverrodeo.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -59,9 +60,15 @@ class UserTest {
 	}
 	
 	@Test
-	void test_relationship_mapping() {
+	void test_relationship_mapping_to_team() {
 		assertNotNull(user.getTeam());
 		assertEquals("Flyman", user.getTeam().getName());
-
+	}
+	
+	@Test
+	void test_relationship_mapping_to_fish() {
+		assertNotNull(user.getFishes());
+		assertTrue(user.getFishes().size() > 0);
+		assertEquals(43.5, user.getFishes().get(0).getSizeInCm());
 	}
 }
