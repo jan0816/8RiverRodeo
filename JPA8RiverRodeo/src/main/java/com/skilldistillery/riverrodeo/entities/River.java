@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class River {
@@ -16,6 +17,7 @@ public class River {
 	private int id;
 	
 	private String name;
+	
 	
 	//METHODS BEGIN:
 	public River() {

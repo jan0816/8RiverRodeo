@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -24,8 +26,9 @@ public class Fish {
 	@Column(name="picture_url")
 	private String pictureUrl;
 	
-	@Column(name="river_id")
-	private int riverId;
+	@OneToOne
+	@JoinColumn(name="river_id")
+	private River river;
 	
 	@Column(name="user_id")
 	private int userId;
@@ -38,6 +41,17 @@ public class Fish {
 	public Fish() {
 		
 	}
+	
+
+	public River getRiver() {
+		return river;
+	}
+
+
+	public void setRiver(River river) {
+		this.river = river;
+	}
+
 
 	public int getId() {
 		return id;
@@ -56,13 +70,6 @@ public class Fish {
 		this.userId = userId;
 	}
 
-	public int getRiverId() {
-		return riverId;
-	}
-
-	public void setRiverId(int riverId) {
-		this.riverId = riverId;
-	}
 
 	public double getSizeInCm() {
 		return sizeInCm;
@@ -119,8 +126,10 @@ public class Fish {
 		builder.append(sizeInCm);
 		builder.append(", pictureUrl=");
 		builder.append(pictureUrl);
-		builder.append(", riverId=");
-		builder.append(riverId);
+		builder.append(", river=");
+		builder.append(river);
+		builder.append(", userId=");
+		builder.append(userId);
 		builder.append(", dayCaught=");
 		builder.append(dayCaught);
 		builder.append("]");
