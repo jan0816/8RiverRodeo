@@ -56,7 +56,12 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("Seth", user.getFirstName());
 		assertEquals("Schneider", user.getLastName());
-		assertEquals(1, user.getTeamId());
+	}
+	
+	@Test
+	void test_relationship_mapping() {
+		assertNotNull(user.getTeam());
+		assertEquals("Flyman", user.getTeam().getName());
 
 	}
 }
