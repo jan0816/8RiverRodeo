@@ -59,4 +59,10 @@ class FishTest {
 		assertNotNull(fish.getRiver());
 		assertNotNull("Colorado", fish.getRiver().getName());
 	}
+	@Test
+	@DisplayName("test Fish MTO User mapping")
+	void test3() {
+		assertNotNull(fish.getUser());
+		assertNotNull("Seth", fish.getUser().getFirstName());
+	}
 }

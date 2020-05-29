@@ -8,7 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.xml.ws.soap.MTOM;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -36,12 +38,25 @@ public class Fish {
 	@Column(name="day_caught")
 	@CreationTimestamp
 	private LocalDate dayCaught;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	//METHODS BEGIN:
 	public Fish() {
 		
 	}
 	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 
 	public River getRiver() {
 		return river;
