@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `team` ;
 CREATE TABLE IF NOT EXISTS `team` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
+  `password` VARCHAR(200) NULL,
   `phone_number` VARCHAR(45) NULL,
   `rank` INT NULL,
   `role` VARCHAR(45) NOT NULL DEFAULT 'user',
