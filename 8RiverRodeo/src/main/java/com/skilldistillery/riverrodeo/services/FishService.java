@@ -7,7 +7,7 @@ import com.skilldistillery.riverrodeo.entities.Fish;
 public interface FishService {
 	List<Fish> listAllFishes();
 	Fish findById(Integer fishId);
+	Fish createFish(Fish fish, String username);
 	Fish updateFish(Integer fishId, Fish fish);
 	Boolean deleteFish(Integer fishId);
-
 }
