@@ -15,6 +15,11 @@ public class TeamServiceImpl implements TeamService {
 	
 	@Autowired
 	private TeamRepository teamRepo;
+	
+	@Override
+	public Team findTeamByName(String teamName) {
+		return teamRepo.findByName(teamName);
+	}
 
 	@Override
 	public List<Team> listAllTeams() {
@@ -22,21 +27,23 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public Team findById(Integer teamId) {
-		Optional<Team> optTeam = teamRepo.findById(teamId);
+	public Team findById(Integer teamId, String teamname) {
 		Team team = null;
-		if (optTeam.isPresent()) {
+		Team loggedInTeam = teamRepo.findByName(teamname);
+		Optional<Team> optTeam = teamRepo.findById(teamId);
+		if (optTeam.isPresent() && loggedInTeam != null) {
 			team = optTeam.get();
 		}
 		return team;
 	}
 
 	@Override
-	public Team updateTeam(Integer teamId, Team team) {
+	public Team updateTeam(Integer teamId, Team team, String teamname) {
+		Team loggedInTeam = teamRepo.findByName(teamname);
 		Optional<Team> optTeam = teamRepo.findById(teamId);
-		if (optTeam.isPresent()) {
-			Team dbTeam= optTeam.get();
-			if (dbTeam != null) {
+		if (optTeam.isPresent() && loggedInTeam != null) {
+			Team dbTeam = optTeam.get();
+			if (dbTeam != null) {				
 				dbTeam.setName(team.getName());
 				dbTeam.setPassword(team.getPassword());
 				dbTeam.setPhoneNumber(team.getPhoneNumber());
@@ -48,14 +55,33 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public Boolean deleteTeam(Integer teamId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean disableTeam(Integer teamId, String teamname) {
+		Team loggedInTeam = teamRepo.findByName(teamname);
+		Optional<Team> optTeam = teamRepo.findById(teamId);
+        if (optTeam.isPresent() && loggedInTeam != null) {
+            Team managedTeam = optTeam.get();
+            if (managedTeam != null ) {
+            	managedTeam.setEnabled(!managedTeam.isEnabled());
+            	teamRepo.saveAndFlush(managedTeam);
+            	return true;            	
+            }
+		}
+        return false;
 	}
 
+	
 	@Override
-	public Team findTeamByName(String teamName) {
-		return teamRepo.findByName(teamName);
+	public Boolean deleteTeam(Integer teamId, String teamname) {
+		Team loggedInTeam = teamRepo.findByName(teamname);
+		Optional<Team> optTeam = teamRepo.findById(teamId);
+        if (optTeam.isPresent() && loggedInTeam != null) {
+			Team managedTeam = optTeam.get();
+			if (managedTeam != null) {
+				teamRepo.deleteById(teamId);
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

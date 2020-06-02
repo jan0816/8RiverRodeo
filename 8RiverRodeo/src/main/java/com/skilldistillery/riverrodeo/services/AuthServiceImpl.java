@@ -16,17 +16,21 @@ public class AuthServiceImpl implements AuthService {
 	private PasswordEncoder encoder;
 	
 	@Autowired
-	private UserRepository userRepo;
+	private UserService userSvc;
 	
 	@Autowired
 	private TeamRepository teamRepo;
 	
 	@Override
 	public Team register(Team team) {
+		System.out.println("User ID "+team.getTeamMembers().get(0).getId());
+		Team dbTeam = null;
 		String encrypted = encoder.encode(team.getPassword());
 		team.setPassword(encrypted); // only persist encoded password
 		team.setRole("user");
-		teamRepo.saveAndFlush(team);
+		dbTeam = teamRepo.saveAndFlush(team);
+		userSvc.createUser(team.getTeamMembers().get(0), dbTeam);
+		userSvc.createUser(team.getTeamMembers().get(1), dbTeam);
 		return team;
 	}
 

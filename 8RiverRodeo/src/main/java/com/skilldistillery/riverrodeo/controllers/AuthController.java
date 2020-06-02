@@ -33,7 +33,6 @@ public class AuthController {
 		if (team == null) {
 			response.setStatus(400);
 		}
-
 		team = svc.register(team);
 
 		return team;

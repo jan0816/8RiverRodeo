@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.riverrodeo.entities.Team;
 import com.skilldistillery.riverrodeo.entities.User;
 import com.skilldistillery.riverrodeo.repositories.UserRepository;
 
@@ -57,6 +58,19 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public User createUser(User user, Team team) {
+		if (user != null) {			
+			user.setTeam(team);
+			try {
+				return userRepo.saveAndFlush(user);							
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 
 }
