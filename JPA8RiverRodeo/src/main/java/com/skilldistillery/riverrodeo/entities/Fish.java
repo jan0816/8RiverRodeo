@@ -40,6 +40,7 @@ public class Fish {
 	@JoinColumn(name="user_id")
 	private User user;
 
+	
 	//METHODS BEGIN:
 	public Fish() {
 		
