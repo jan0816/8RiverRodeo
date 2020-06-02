@@ -26,6 +26,8 @@ public class Team {
 	
 	private String role;
 	
+	private boolean enabled;
+	
 	@Column(name = "picture_url")
 	private String pictureUrl;
 	
@@ -96,6 +98,14 @@ public class Team {
 		this.teamMembers = teamMembers;
 	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -123,7 +133,8 @@ public class Team {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Team [id=").append(id).append(", name=").append(name).append(", password=").append(password)
 				.append(", phoneNumber=").append(phoneNumber).append(", rank=").append(rank).append(", role=")
-				.append(role).append(", pictureUrl=").append(pictureUrl).append("]");
+				.append(role).append(", enabled=").append(enabled).append(", pictureUrl=").append(pictureUrl)
+				.append(", teamMembers=").append(teamMembers).append("]");
 		return builder.toString();
 	}
 

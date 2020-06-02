@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 	//FIELDS
@@ -26,10 +28,12 @@ public class User {
 	
 //	@Column(name = "team_id")
 //	private int teamId;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="team_id")
 	private Team team;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Fish> fishes;
 

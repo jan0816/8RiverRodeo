@@ -7,9 +7,10 @@ import com.skilldistillery.riverrodeo.entities.Team;
 
 public interface TeamService {
 	List<Team> listAllTeams();
-	Team findById(Integer teamId);
-	Team updateTeam(Integer teamId, Team team);
-	Boolean deleteTeam(Integer teamId);
+	Team findById(Integer teamId, String teamname);
+	Team updateTeam(Integer teamId, Team team, String teamname);
+	Boolean disableTeam(Integer teamId, String teamname);
+	Boolean deleteTeam(Integer teamId, String teamname);
 	Team findTeamByName(String teamName);
 
 }
