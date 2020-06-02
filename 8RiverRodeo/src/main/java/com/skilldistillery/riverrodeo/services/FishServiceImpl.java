@@ -54,15 +54,39 @@ public class FishServiceImpl implements FishService {
 	    }
 
 	@Override
-	public Fish updateFish(Integer fishId, Fish fish) {
-		// TODO Auto-generated method stub
+	public Fish updateFish(Integer fishId, Fish fish, String username) {
+		Team team = teamRepo.findByName(username);
+		Optional<Fish> optFish = fishRepo.findById(fishId);
+		if (optFish.isPresent() && team != null) {
+			Fish updateFish = optFish.get();
+			//updateFish.setDayCaught(fish.getDayCaught());
+			updateFish.setRiver(fish.getRiver());
+			updateFish.setSizeInCm(fish.getSizeInCm());
+			updateFish.setUser(fish.getUser());
+			updateFish.setPictureUrl(fish.getPictureUrl());
+			try {
+				updateFish = fishRepo.saveAndFlush(updateFish);
+				return updateFish;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return null;
 	}
 
 	@Override
-	public Boolean deleteFish(Integer fishId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean deleteFish(Integer fishId, String username) {
+		
+		Optional<Fish> optFish = fishRepo.findById(fishId);
+		Team currentTeam = teamRepo.findByName(username);
+		if (optFish.isPresent() && currentTeam != null) {
+			Fish deleteFish = optFish.get();
+			if (deleteFish != null) {
+				fishRepo.deleteById(fishId);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	
