@@ -23,7 +23,6 @@ public class AuthServiceImpl implements AuthService {
 	
 	@Override
 	public Team register(Team team) {
-		System.out.println("User ID "+team.getTeamMembers().get(0).getId());
 		Team dbTeam = null;
 		String encrypted = encoder.encode(team.getPassword());
 		team.setPassword(encrypted); // only persist encoded password

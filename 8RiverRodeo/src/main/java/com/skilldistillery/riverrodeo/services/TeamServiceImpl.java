@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.riverrodeo.entities.Team;
@@ -15,6 +16,9 @@ public class TeamServiceImpl implements TeamService {
 	
 	@Autowired
 	private TeamRepository teamRepo;
+	
+	@Autowired
+	private PasswordEncoder encoder;
 	
 	@Override
 	public Team findTeamByName(String teamName) {
@@ -45,9 +49,11 @@ public class TeamServiceImpl implements TeamService {
 			Team dbTeam = optTeam.get();
 			if (dbTeam != null) {				
 				dbTeam.setName(team.getName());
-				dbTeam.setPassword(team.getPassword());
+				String encrypted = encoder.encode(team.getPassword());
+				dbTeam.setPassword(encrypted); // only persist encoded password
 				dbTeam.setPhoneNumber(team.getPhoneNumber());
 				dbTeam.setPictureUrl(team.getPictureUrl());
+				dbTeam.setEnabled(team.isEnabled());
 				return teamRepo.saveAndFlush(dbTeam);
 			}
 		}
