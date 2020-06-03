@@ -108,8 +108,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fishdb`;
-INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`, `enabled`) VALUES (1, 'Flyman', 'password', '1239705555', 1, 'user', 'https://i.pinimg.com/originals/96/57/fc/9657fcf983d0497f4813b01da29e12c5.jpg', 1);
-INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`, `enabled`) VALUES (2, 'Pussy power', 'password', '3211234567', 2, 'user', 'https://i.ytimg.com/vi/cVxTZFpYKMg/hqdefault.jpg', 1);
+INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`, `enabled`) VALUES (1, 'Flyman', '$2a$10$TynlDhIMm4mCZfULqJjG7OqUzpCkdFYp5fZwzeTDJ/UgKq8YDjUlG', '1239705555', 1, 'user', 'https://i.pinimg.com/originals/96/57/fc/9657fcf983d0497f4813b01da29e12c5.jpg', 1);
+INSERT INTO `team` (`id`, `name`, `password`, `phone_number`, `rank`, `role`, `picture_url`, `enabled`) VALUES (2, 'Pussy power', '$2a$10$k1wdvhPRYYDZkS/eg8P0KebRPoBoeAFY32yhc8l0zIYa1dqZ6x4pm', '3211234567', 2, 'user', 'https://i.ytimg.com/vi/cVxTZFpYKMg/hqdefault.jpg', 1);
 
 COMMIT;
 
