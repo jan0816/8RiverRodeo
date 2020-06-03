@@ -33,7 +33,7 @@ public class Team {
 	@Column(name = "picture_url")
 	private String pictureUrl;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "team")
 	private List<User> teamMembers;
 

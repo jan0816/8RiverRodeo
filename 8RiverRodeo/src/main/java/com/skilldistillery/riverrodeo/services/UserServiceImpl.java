@@ -36,10 +36,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User updateUser(Integer userId, User user, String teamname) {
-		System.out.println(user);
+		//System.out.println(user);
 		Team dbTeam = null;
 		if (user.getTeam() != null) {
-			System.out.println(user.getTeam().getId());
+			//System.out.println(user.getTeam().getId());
 			Optional<Team> optTeam = teamRepo.findById(user.getTeam().getId());
 			if (optTeam.isPresent()) {
 				dbTeam = optTeam.get();
