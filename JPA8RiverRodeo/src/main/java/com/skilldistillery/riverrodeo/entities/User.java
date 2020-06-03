@@ -28,12 +28,12 @@ public class User {
 	
 //	@Column(name = "team_id")
 //	private int teamId;
-	//@JsonIgnore
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="team_id")
 	private Team team;
 	
-	//@JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Fish> fishes;
 

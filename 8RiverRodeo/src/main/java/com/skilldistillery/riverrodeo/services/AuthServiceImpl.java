@@ -28,6 +28,7 @@ public class AuthServiceImpl implements AuthService {
 		team.setPassword(encrypted); // only persist encoded password
 		team.setRole("user");
 		dbTeam = teamRepo.saveAndFlush(team);
+		System.out.println("Teammembers "+team.getTeamMembers().size());
 		userSvc.createUser(team.getTeamMembers().get(0), dbTeam);
 		userSvc.createUser(team.getTeamMembers().get(1), dbTeam);
 		return team;
