@@ -80,8 +80,8 @@ public class FishServiceImpl implements FishService {
 		Optional<Fish> optFish = fishRepo.findById(fishId);
 		Team currentTeam = teamRepo.findByName(username);
 		if (optFish.isPresent() && currentTeam != null) {
-			Fish deleteFish = optFish.get();
-			if (deleteFish != null) {
+			Fish managedFish = optFish.get();
+			if (managedFish != null) {
 				fishRepo.deleteById(fishId);
 				return true;
 			}

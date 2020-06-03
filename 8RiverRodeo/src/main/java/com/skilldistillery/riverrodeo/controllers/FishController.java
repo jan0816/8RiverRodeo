@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -75,5 +76,20 @@ public class FishController {
 			fish = null;
 		}
 		return fish;
+	}
+	
+	@DeleteMapping("fishes/{fishId}")
+	public void deleteFish(@PathVariable("fishId") int fishId, HttpServletResponse response, Principal principal) {
+		try {
+			if (fishSvc.deleteFish(fishId, principal.getName())) {
+				response.setStatus(204);
+
+			} else {
+				response.setStatus(404);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setStatus(409);
+		}
 	}
 }
