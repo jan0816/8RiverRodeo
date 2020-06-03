@@ -17,55 +17,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.riverrodeo.entities.Team;
-import com.skilldistillery.riverrodeo.services.TeamService;
+import com.skilldistillery.riverrodeo.entities.User;
+import com.skilldistillery.riverrodeo.services.UserService;
 
 @RestController
 @RequestMapping("api")
 @CrossOrigin({ "*", "http://localhost:4280"})
-public class TeamController {
+public class UserController {
 	
 	@Autowired
-	private TeamService teamSvc;
+	private UserService userSvc;
 
-	@GetMapping("teams")
-	public List<Team> listAllTeams() {
-		return teamSvc.listAllTeams();
+	@GetMapping("users")
+	public List<User> listAllUsers() {
+		return userSvc.listAllUsers();
 	}
 	
-	@GetMapping("teams/{teamId}")
-	public Team showById(@PathVariable("teamId") int id, HttpServletResponse response, Principal principal) {
-		Team team = teamSvc.findById(id, principal.getName());
-		if (team == null) {
+	@GetMapping("users/{userId}")
+	public User showById(@PathVariable("userId") int userId, HttpServletResponse response, Principal principal) {
+		User user = userSvc.findById(userId);
+		if (user == null) {
 			response.setStatus(404);
 		}
-		return team;
+		return user;
 	}
 	
-	@PutMapping("teams/{teamId}")
-	public Team updateTeam(@PathVariable("teamId") int teamId, @RequestBody Team team,
+	@PutMapping("users/{userId}")
+	public User updateUser(@PathVariable("userId") int userId, @RequestBody User user,
 			HttpServletResponse resp, Principal principal) {
 		try {
-			team = teamSvc.updateTeam(teamId, team, principal.getName());
-			if (team == null) {
+			user = userSvc.updateUser(userId, user, principal.getName());
+			if (user == null) {
 				resp.setStatus(400);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			resp.setStatus(400);
-			team = null;
+			user = null;
 		}
-		return team;
-	}
-	
-	@DeleteMapping("teams/{teamId}")
-	public boolean changeTeamEnabled(HttpServletRequest req, HttpServletResponse res, @PathVariable int teamId, Principal principal) {
-		boolean success = teamSvc.changeTeamEnabled(teamId, principal.getName());
-		if (success) {
-			res.setStatus(200);
-		}else {
-			res.setStatus(404);
-		}
-		return success;
+		return user;
 	}
 	
 }

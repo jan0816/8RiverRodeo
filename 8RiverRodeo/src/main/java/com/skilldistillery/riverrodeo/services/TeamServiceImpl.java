@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.riverrodeo.entities.Team;
-import com.skilldistillery.riverrodeo.entities.User;
 import com.skilldistillery.riverrodeo.repositories.TeamRepository;
 
 @Service
@@ -61,7 +60,7 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public Boolean disableTeam(Integer teamId, String teamname) {
+	public Boolean changeTeamEnabled(Integer teamId, String teamname) {
 		Team loggedInTeam = teamRepo.findByName(teamname);
 		Optional<Team> optTeam = teamRepo.findById(teamId);
         if (optTeam.isPresent() && loggedInTeam != null) {

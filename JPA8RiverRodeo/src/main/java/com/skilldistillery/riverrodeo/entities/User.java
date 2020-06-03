@@ -28,12 +28,12 @@ public class User {
 	
 //	@Column(name = "team_id")
 //	private int teamId;
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="team_id")
 	private Team team;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Fish> fishes;
 
@@ -95,7 +95,7 @@ public class User {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("User [id=").append(id).append(", firstName=").append(firstName).append(", lastName=")
-				.append(lastName).append("]");
+				.append(lastName).append(", team=").append(team).append(", fishes=").append(fishes).append("]");
 		return builder.toString();
 	}
 
