@@ -9,7 +9,7 @@ public interface UserService {
 	User createUser(User user, Team team);
 	List<User> listAllUsers();
 	User findById(Integer userId);
-	User updateUser(Integer userId, User user);
-	Boolean deleteUser(Integer userId);
+	User updateUser(Integer userId, User user, String teamname);
+	Boolean deleteUser(Integer userId, String teamname);
 
 }

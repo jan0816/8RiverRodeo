@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Team {
 	//FIELDS
@@ -31,6 +33,7 @@ public class Team {
 	@Column(name = "picture_url")
 	private String pictureUrl;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "team")
 	private List<User> teamMembers;
 
@@ -134,7 +137,7 @@ public class Team {
 		builder.append("Team [id=").append(id).append(", name=").append(name).append(", password=").append(password)
 				.append(", phoneNumber=").append(phoneNumber).append(", rank=").append(rank).append(", role=")
 				.append(role).append(", enabled=").append(enabled).append(", pictureUrl=").append(pictureUrl)
-				.append(", teamMembers=").append(teamMembers).append("]");
+				.append(", teamMembers=").append("]");
 		return builder.toString();
 	}
 
