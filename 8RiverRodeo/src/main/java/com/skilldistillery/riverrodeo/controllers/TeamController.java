@@ -3,10 +3,12 @@ package com.skilldistillery.riverrodeo.controllers;
 import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -41,7 +43,7 @@ public class TeamController {
 	}
 	
 	@PutMapping("teams/{teamId}")
-	public Team updateUser(@PathVariable("teamId") int teamId, @RequestBody Team team,
+	public Team updateTeam(@PathVariable("teamId") int teamId, @RequestBody Team team,
 			HttpServletResponse resp, Principal principal) {
 		try {
 			team = teamSvc.updateTeam(teamId, team, principal.getName());
@@ -54,6 +56,17 @@ public class TeamController {
 			team = null;
 		}
 		return team;
+	}
+	
+	@DeleteMapping("teams/{teamId}")
+	public boolean changeTeamEnabled(HttpServletRequest req, HttpServletResponse res, @PathVariable int teamId, Principal principal) {
+		boolean success = teamSvc.changeTeamEnabled(teamId, principal.getName());
+		if (success) {
+			res.setStatus(200);
+		}else {
+			res.setStatus(404);
+		}
+		return success;
 	}
 	
 }
