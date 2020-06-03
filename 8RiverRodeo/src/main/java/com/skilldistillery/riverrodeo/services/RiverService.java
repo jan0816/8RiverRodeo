@@ -7,7 +7,8 @@ import com.skilldistillery.riverrodeo.entities.River;
 public interface RiverService {
 	List<River> listAllRivers();
 	River findById(Integer riverId);
-	River updateRiver(Integer riverId, River river);
-	Boolean deleteRiver(Integer riverId);
+	River createRiver(River river, String username);
+	River updateRiver(Integer riverId, River river, String username);
+	Boolean deleteRiver(Integer riverId, String username);
 
 }
