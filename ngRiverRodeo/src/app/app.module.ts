@@ -16,6 +16,7 @@ import { TeamProfileComponent } from './components/team-profile/team-profile.com
 import { NonUserLandingComponent } from './components/non-user-landing/non-user-landing.component';
 import { UserLandingComponent } from './components/user-landing/user-landing.component';
 import { AboutComponent } from './components/about/about.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AboutComponent } from './components/about/about.component';
     TeamProfileComponent,
     NonUserLandingComponent,
     UserLandingComponent,
-    AboutComponent
+    AboutComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
