@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -22,6 +22,7 @@ import { AuthService } from './services/auth.service';
 import { RiverService } from './services/river.service';
 import { TeamService } from './services/team.service';
 import { FishService } from './services/fish.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -44,7 +45,10 @@ import { FishService } from './services/fish.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    NgbModalModule,
+    HttpClientModule
   ],
   providers: [
     UserService,
