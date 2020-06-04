@@ -17,6 +17,11 @@ import { NonUserLandingComponent } from './components/non-user-landing/non-user-
 import { UserLandingComponent } from './components/user-landing/user-landing.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { RiverService } from './services/river.service';
+import { TeamService } from './services/team.service';
+import { FishService } from './services/fish.service';
 
 
 @NgModule({
@@ -41,7 +46,13 @@ import { AdminComponent } from './components/admin/admin.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AuthService,
+    RiverService,
+    TeamService,
+    FishService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
