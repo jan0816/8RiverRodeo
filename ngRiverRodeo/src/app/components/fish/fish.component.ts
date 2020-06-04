@@ -32,7 +32,7 @@ river = new River();
             this.selected = data;
           },
           (bad) => {
-            this.router.navigateByUrl('nonUserLanding');
+            this.router.navigateByUrl('fishes');
             console.error(
               'FishComponent.reload(): error retrieving fish list'
             );
