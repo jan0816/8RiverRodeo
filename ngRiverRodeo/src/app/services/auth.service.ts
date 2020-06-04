@@ -56,11 +56,11 @@ export class AuthService {
       );
     }
 
-    getCurrentUserId(){
+    getCurrentTeamId(){
       return localStorage.getItem('currentTeamId');
     }
 
-    getCurrentUserRole(){
+    getCurrentTeamRole(){
       return localStorage.getItem('currentTeamRole');
     }
 
