@@ -30,12 +30,12 @@ export class AuthService {
         return this.http
         .get<Team>(this.baseUrl + 'authenticate', httpOptions)
         .pipe(
-          tap((user) => {
+          tap((team) => {
             localStorage.setItem('credentials' , credentials);
             localStorage.setItem('currentTeamId' , team.id+"");
             localStorage.setItem('currentTeamRole' , team.role+"");
             //console.log(res);
-            return user;
+            return team;
           }),
           catchError((err: any) => {
             console.log(err);
