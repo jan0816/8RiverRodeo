@@ -51,6 +51,19 @@ export class TeamService {
         }
       }
 
+      public disableTeam(id: number){
+        const httpOptions = this.getHttpOptions();
+        if (this.authService.checkLogin()){
+            return this.http.delete<Team>(`${this.url}/${id}`, httpOptions)
+            .pipe(
+              catchError((err: any) => {
+                console.log(err);
+                return throwError('disable method in team service failed');
+              })
+            );
+          }
+        }
+
       public showLoggedInTeam(){
         const id = this.authService.getCurrentTeamId();
         const httpOptions = this.getHttpOptions();
