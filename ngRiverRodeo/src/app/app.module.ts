@@ -23,6 +23,7 @@ import { RiverService } from './services/river.service';
 import { TeamService } from './services/team.service';
 import { FishService } from './services/fish.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     NgbModalModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [
