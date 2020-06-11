@@ -1,7 +1,9 @@
-<p>login works!</p>
+<p>login form page</p>
 
 <form>
+  Team name:
   <input type="text" name="name" placeholder="Team Name" [(ngModel)]="newTeam.name"/><br />
+  Password:
   <input type="password" name="name" [(ngModel)]="newTeam.password"/><br />
   <input type="submit" (click)="login(newTeam)" value="Login" />
 </form>
