@@ -1,0 +1,23 @@
+.navbar{
+  background: #2E8B57;
+  background-image: linear-gradient(#2E8B57, teal);
+  color: #AAB2B3;
+  font-size: large;
+}
+
+.navbar li {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0em;
+  margin-right: 0em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  text-align: right;
+}
+
+button {
+  background-color:#F7DC6F   ;
+  color: black;
+}
