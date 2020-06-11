@@ -1,1 +1,20 @@
-<p>register works!</p>
+<p>Register a new team</p>
+
+<form>
+  Team name:
+  <input type="text" name="name" placeholder="Team Name" [(ngModel)]="newTeam.name"/><br />
+  Password:
+  <input type="password" name="password" placeholder="Password" [(ngModel)]="newTeam.password"/><br />
+  Team member 1:<br>
+  First Name:
+  <input type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser1.firstName"/><br />
+  Last Name:
+  <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser1.lastName"/><br />
+
+  Team member 2:<br>
+  First Name:
+  <input type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser2.firstName"/><br />
+  Last Name:
+  <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser2.lastName"/><br />
+  <input type="submit" (click)="register(newTeam,newUser1,newUser2)" value="Register" />
+</form>
