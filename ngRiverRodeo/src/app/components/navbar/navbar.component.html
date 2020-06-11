@@ -51,8 +51,8 @@
     <div class="card-body">
       <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
           <div class="form-group">
-              <label for="uname1">Username</label>
-              <input type="text" [(ngModel)]="newTeam.name" class="form-control form-control-lg rounded-0" name="username" id="uname1" required="">
+              <label for="uname1">Username/Team Name</label>
+              <input type="text" [(ngModel)]="newTeam.name" class="form-control form-control-lg rounded-0" name="name" id="name" required="">
               <div class="invalid-feedback">Oops, you missed this one.</div>
           </div>
           <div class="form-group">
@@ -85,7 +85,7 @@
           <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
             <div class="form-group">
                 <label for="uname1">Username</label>
-                <input type="text" [(ngModel)]="newTeam.name" class="form-control form-control-lg rounded-0" name="username" id="uname1" required="">
+                <input type="text" [(ngModel)]="newTeam.name" class="form-control form-control-lg rounded-0" placeholder="Team Name" name="username" id="name" required="">
                 <div class="invalid-feedback">Oops, you missed this one.</div>
             </div>
             <div class="form-group">
@@ -95,17 +95,19 @@
             </div>
             <div class="form-group">
               <label for="uname1">Phone Number</label>
-              <input type="text" [(ngModel)]="newTeam.phoneNumber" class="form-control form-control-lg rounded-0" name="email" id="email1" required="">
+              <input type="text" [(ngModel)]="newTeam.phoneNumber" class="form-control form-control-lg rounded-0" name="phone" id="phoneNumber" placeholder= "Phone Number" required="">
               <div class="invalid-feedback">Oops, you missed this one.</div>
             </div>
             <div class="form-group">
               <label for="uname1">Team Member 1</label>
-              <input type="text" [(ngModel)]="newUser1.firstName" class="form-control form-control-lg rounded-0" name="email" id="email1" required="">
+              <input type="text" [(ngModel)]="newUser1.firstName"  class="form-control form-control-lg rounded-0" name="firstName" id="firstName1" placeholder= "First Name" required="">
+              <input type="text" [(ngModel)]="newUser1.lastName"  class="form-control form-control-lg rounded-0" name="lastName" id="lastName1" placeholder="Last Name" required="">
               <div class="invalid-feedback">Oops, you missed this one.</div>
             </div>
             <div class="form-group">
               <label for="uname1">Team Member 2</label>
-              <input type="text" [(ngModel)]="newUser2.firstName" class="form-control form-control-lg rounded-0" name="email" id="email1" required="">
+              <input type="text" [(ngModel)]="newUser1.firstName"  class="form-control form-control-lg rounded-0" name="firstName" id="firstName2" placeholder= "First Name" required="">
+              <input type="text" [(ngModel)]="newUser2.lastName"  class="form-control form-control-lg rounded-0" name="lastName" id="lastName2" placeholder="Last Name" required="">
               <div class="invalid-feedback">Oops, you missed this one.</div>
             </div>
 

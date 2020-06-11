@@ -56,18 +56,25 @@ export class NavbarComponent implements OnInit {
 
   adminLoggedIn(){
     if (this.loggedIn()){
-     return this.authService.getCurrentUserRole() === 'admin';
+     return this.authService.getCurrentTeamRole() === 'admin';
     }
     return false;
+  }
+  open(content) {
+    this.modalService.open(content, {centered: true, ariaLabelledBy: 'modal-basic-title'});
+  }
+
+  openLg(content) {
+    this.modalService.open(content, { size: 'lg' });
   }
 
   login(team: Team){
     this.authService.login(team.name, team.password).subscribe(
       good => {
         console.log(good);
-        this.currTeam = good;
-        this.pictureUrl = good.pictureUrl;
-        this.router.navigateByUrl("/profile");
+        // this.currTeam = good;
+        // this.pictureUrl = good.pictureUrl;
+        this.router.navigateByUrl("/userLanding");
         this.newTeam = new Team();
       },
       bad => {
@@ -75,20 +82,18 @@ export class NavbarComponent implements OnInit {
       });
   }
 
-  register(user: User, location: Location){
-    console.log(user);
-    console.log(location);
-    this.locaSvc.createLocation(location).subscribe(
-      location => {
-        console.log("Create location");
-        console.log(location);
-        this.returnedLocation = location;
-        user.location = this.returnedLocation;
-        this.authService.register(user).subscribe(
+  register(team: Team, user1: User, user2: User){
+    this.newTeam.teamMembers = [];
+    console.log(user1);
+    console.log(user2);
+    team.teamMembers.push(user1);
+    team.teamMembers.push(user2);
+    console.log(team);
+        this.authService.register(team).subscribe(
           good => {
-            this.authService.login(user.username,user.password).subscribe(
+            this.authService.login(team.name, team.password).subscribe(
               great =>{
-                this.router.navigateByUrl("/profile");
+                this.router.navigateByUrl("/userLanding");
                 console.log(great);
               },
               terrible => {
@@ -102,27 +107,20 @@ export class NavbarComponent implements OnInit {
             console.error(bad);
           }
         );
-
-      },
-      err =>{
-        console.log("Error creating location in user register "+err);
       }
-    );
+  setEditTeam(){
+    this.editTeam = Object.assign({}, this.currTeam());
   }
 
-  setEditUser(){
-    this.editUser = Object.assign({}, this.currUser);
-  }
-
-  updateUser(user: User){
-    this.userService.update(user).subscribe(
+  updateTeam(team: Team){
+    this.teamService.update(team).subscribe(
       yes => {
         this.reload();
         //this.currentUser = yes;
-        this.editUser = null;
+        this.editTeam = null;
       },
       no => {
-        console.error('UserProfileComponent.updateUser(): error');
+        console.error('NavBarComponent.updateTeam(): error');
         console.error(no);
 
       }
@@ -131,10 +129,10 @@ export class NavbarComponent implements OnInit {
   }
 
   reload(){
-    this.userService.showLoggedInUser().subscribe(
+    this.teamService.showLoggedInTeam().subscribe(
       data => {
-        this.currUser = data;
-        this.userImg = data.imageUrl;
+        this.currTeam = data;
+        this.pictureUrl = data.pictureUrl;
         console.log(data);
       },
       error =>{
