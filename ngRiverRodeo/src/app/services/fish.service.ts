@@ -28,7 +28,7 @@ export class FishService {
   }
 
   public index() {
-    return this.http.get<Fish[]>(this.url + '/events').pipe(
+    return this.http.get<Fish[]>(this.url + '/fishes').pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('FishService.index: error retrieving fishes: ' + err);
